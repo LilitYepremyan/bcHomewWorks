@@ -1,0 +1,10 @@
+let music = ["Jazz", "Blues"];
+console.log(music);
+music.push("Rock-n-Roll");
+console.log(music);
+music[(music.length - 1) / 2] = "Classic";
+console.log(music);
+music.shift();
+console.log(music);
+music.unshift("Rep", "Reggae");
+console.log(music);
