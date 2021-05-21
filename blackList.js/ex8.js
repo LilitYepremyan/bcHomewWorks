@@ -4,6 +4,7 @@ let array = num.split("");
 let first = array.shift();
 let last = array.pop();
 array.unshift(last);
-array.push(first);
-let number = array.join("");
+array.push(first)
+let number= array.join("")
 console.log(number);
+

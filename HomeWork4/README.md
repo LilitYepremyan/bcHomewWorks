@@ -98,9 +98,13 @@ Input                Output
 
 ```
 ```javascript
-let arr = [-23, -456, 0];
-arr.sort((a, b) => a - b);
-console.log(arr.sort());
+let a = 122,
+  b = 25,
+  c = -135;
+let d = [];
+d.push(a, b, c);
+d.sort((a, b) => a - b);
+console.log(d);
 
 ```
 
@@ -161,24 +165,15 @@ Input       Output
 895796        695798
 ```
 ```javascript
-let number = 895796;
-let num1 = Math.floor(number / 100000);
-let num2 = Math.floor(number % 100000);
-let num3 = Math.floor(num2 / 10000);
-let num4 = num2 % 10000;
-let num5 = Math.floor(num4 / 1000);
-let num6 = num4 % 1000;
-let num7 = Math.floor(num6 / 100);
-let num8 = num6 % 100;
-let num9 = Math.floor(num8 / 10);
-let num10 = num8 % 10;
-console.log(
-  num10 * 100000 +
-    num9 * 10000 +
-    num7 * 1000 +
-    num5 * 100 +
-    num3 * 10 +
-    num1 * 1
+let num = 1565166;
+num = String(num);
+let array = num.split("");
+let first = array.shift();
+let last = array.pop();
+array.unshift(last);
+array.push(first);
+let number = array.join("");
+console.log(number);
 ```
 ##### Insert a number. Calculate product and sum of the digits of the number. If product is divisible by the sum,print the quotient, otherwise print the remainder.
 ``` Makdown
@@ -542,11 +537,158 @@ console.log(fibonacchi(10));
 
  ```
  ```javascript
-let words = "May the Force  be with you.";
+let words = "May the Force ,  be with you.";
 let wordsArr = words.split(" ");
-console.log(wordsArr);
-
-
-
-
+let array = [];
+for (let i = 0; i < wordsArr.length; i++) {
+  if (wordsArr[i] !== "," && wordsArr[i] !== "") {
+    array.push(wordsArr[i]);
+  }
+}
+console.log(array);
  ```
+##### Insert a number. Print ‘yesʼ if the numberis prime, ‘noʼ otherwise.
+ ```Markdown
+ Input        Output
+  40          ‘yesʼ
+  63          ‘noʼ
+ ```
+ ```javascript
+ let x = 401;
+let y = true;
+for (let i = 2; i < x; i ++) {
+  if (x % i === 0) {
+    y = false;
+    break;
+  }
+}
+if (y) {
+  console.log("Yes");
+} else console.log("No");
+ ```
+##### Given a sentence with missing words and an array of words. Replace all ‘_ʼ in a sentence with the words from the array.
+```Markdown
+Input                                                     Output
+“_, we have a _.” [“Houston”, “problem”]                “Houston, we have a problem.”
+```
+```javascript
+let string = "_, we have a _.";
+let array = ["Houston", "problem"];
+let text = "";
+let j = 0;
+for (i = 0; i < string.length; i++) {
+  if (string[i] === "_") {
+    text += array[j];
+    j++;
+  } else {
+    text += string[i];
+  }
+}
+
+console.log(text);
+```
+##### Given an array of strings and numbers. Print the number of integers and the number of strings in the array.
+```Markdown 
+Input                                                 Output
+[1, ‘10ʼ, ‘hiʼ, 2, 3]                          “Numbers: 3, Strings: 2”
+[1, 4, ‘i am a stringʼ, ‘456ʼ]                 “Numbers: 2, Strings: 2”
+```
+```javascript
+let array = [1, "10", "hi", 2, 3];
+let array1 = [];
+
+for (let i = 0; i < array.length; i++) {
+  if (array[i] === Number(array[i])) {
+    array1.push(array[i]);
+  }
+}
+let result = `The count of numbers ${array1.length} and the count of string ${
+  array.length - array1.length
+}`;
+console.log(result);
+```
+##### Given an array of strings. Find the strings with maximum and minimum lengths in array. Print the sum of theirlengths.
+```Markdown 
+Input                                                                    Output
+[“anymore”, “raven”, “me”, “communicate”]                                  13
+[“wish”, “slightly”, “understand”, “longer”, “unexpected”, “heart”]        14
+```
+```javascript
+let arr = ["anymore", "raven", "me", "communicate"];
+let max = 0;
+let min = Infinity;
+let result = 0;
+for (let i = 0; i < arr.length; i++) {
+  if (max < arr[i].length) {
+    max = arr[i].length;
+  }
+  if (min > arr[i].length) {
+    min = arr[i].length;
+  }
+}
+result = min + max;
+console.log(result);
+
+```
+##### Given an array of numbers and a number. Find the index of a first element which is equal to that number.If there is not such a number, that find the index of the first element which is the closest to it.
+```Markdown
+Input                                                                Output
+[21, -9, 15, 2116, -71, 33], -71                                        4
+[ 36, -12, 47, -58, 148, -55, -19, 10], -56                             5
+[5, 46, 17, -2, 89, 0, 26 ] 36                                          1
+```
+```javascript
+let array = [21, -9, 15, 2116, -71, 33];
+let digit = -71;
+let newArray = [];
+let indexFromArr = 0;
+for (let i = 0; i < array.length; i++) {
+  if (array[i] === digit) {
+    indexFromArr = i;
+  } else {
+    newArray.push(Math.abs(array[i] - digit));
+  }
+}
+let findIndex = 0;
+let min = Infinity;
+for (let i = 0; i < newArray.length; i++) {
+  if (min > newArray[i]) {
+    min = newArray[i];
+    findIndex = i;
+  }
+}
+if (indexFromArr) {
+  console.log(indexFromArr);
+} else {
+  console.log(findIndex);
+}
+
+```
+##### Given an array consisting from the arrays of numbers (like a two-dimensional array). Find sum of each row and print them as an array.
+```Markdown
+Input                                                                    Output
+[[3, 4, 5], [1, 0, 0], [4, 5, 4], [8, 8, -1]]                          [12, 1, 13, 15]
+[[8, 35, 2], [8], [5, 6, -5 , -6], [1, 3, -9, 0,-1]]                   [45, 8, 0, -6]
+[[1], [2], [3], [4]]                                                   [1, 2, 3, 4]
+```
+```javascript
+const arr = [
+  [3, 4, 5],
+  [1, 0, 0],
+  [4, 5, 4],
+  [8, 8, -1],
+];
+
+let sum = 0;
+const newArr = [];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    sum += arr[i][j];
+  }
+  newArr.push(sum);
+  sum = 0;
+}
+
+console.log(newArr);
+```

@@ -8,4 +8,5 @@ function getNumber(array) {
   });
 }
 
+
 console.log(getNumber(["1", "px", "2323"]));
