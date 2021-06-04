@@ -10,4 +10,4 @@ function validation(str) {
   }
   return "Bad Number";
 }
-console.log(validation("+123456780"));
+console.log(validation("+12345 6780"));
