@@ -50,13 +50,14 @@ class LibraryBookBase extends Book {
     throw new Error("Invalid number");
   }
   toString() {
-    return `${this.title} ${this.author}`;
+    return `${this.title} ${this.author} ${this.bookId}`;
   }
 }
 
-class LibraryBook extends LibraryBookBase {
+class LibraryBook extends Book {
   constructor(title, author, bookId, quantity) {
-    super(title, author, bookId);
+    super(title, author);
+    this.bookId = bookId;
     this.quantity = quantity;
   }
   get quantity() {
@@ -80,9 +81,11 @@ class LibraryBook extends LibraryBookBase {
   }
 }
 
-class ReaderBook extends LibraryBook {
+class ReaderBook extends Book {
   constructor(title, author, bookId, quantity, expirationDate, isReturned) {
-    super(title, author, bookId, quantity);
+    super(title, author);
+    this.bookId = bookId;
+    this.quantity = quantity;
     this.expirationDate = expirationDate;
     this.isReturned = isReturned;
     this.allBook = [];
@@ -156,26 +159,18 @@ class Reader {
     this._books = value;
   }
   toString() {
-    return `${this.firstName} ${this.lastName} ${this.readerId} ${this.books}`;
+    return `${this.firstName}   ${this.lastName}    ${this.readerId}    ${this.books}`;
   }
   borrowBook(book, library) {
-    // if (library.books.includes(book) && book instanceof ReaderBook) {
-    //   this.books.push(book);
-    // }
+    if (library.books.includes(book) && book instanceof ReaderBook) {
+      this.books.push(book);
+    }
     return library.books;
   }
 }
 
-class Library extends Reader {
-  constructor(
-    firstName,
-    lastName,
-    readerId,
-    books,
-    booksList = [],
-    readers = []
-  ) {
-    super(firstName, lastName, readerId);
+class Library {
+  constructor(booksList = [], readers = []) {
     this.booksList = booksList;
     this.readers = readers;
   }
@@ -226,17 +221,6 @@ class Library extends Reader {
 }
 
 const book1 = new Book("Dorian Grey", "Oskar Wilde");
-// console.log(book1.toString());
-// console.log(book1.isTheSameBook(["Dorian Grey", "Oskar Wilde"]));
-
-// const libraryBookBase1 = new LibraryBookBase(5, "Dorian Grey", "Oskar Wilde");
-// console.log(libraryBookBase1.toString());
-
-// const newBook = new LibraryBook("Emma", "Jane Austen", 1, 1);
-// console.log(newBook.toString());
-// console.log(newBook.decreaseQuantityBy(3, 2));
-// console.log(newBook.increaseQuantityBy(3, 2));
-
 const book2 = new ReaderBook(
   "The portrait of Dorian Grey",
   "Oscar Wilde",
@@ -245,52 +229,30 @@ const book2 = new ReaderBook(
   "2021, 6, 15",
   true
 );
-// const book3 = new ReaderBook(
-//   "One Hundred Years of Solitude",
-//   "Gabriel Garcia Marquez",
-//   2,
-//   2,
-//   "2021,5,12",
-//   false
-// );
+const book3 = new ReaderBook(
+  "One Hundred Years of Solitude",
+  "Gabriel Garcia Marquez",
+  2,
+  2,
+  "2021,5,12",
+  false
+);
+const book4 = new LibraryBookBase("Dorian Grey", "Oskar Wilde",1)
+const book5 = new LibraryBook("Dorian Grey", "Oskar Wilde",1,1)
 
-// const book4 = new ReaderBook(1, 1, 1, 1, "jbjhb", 1);
-// console.log(book2.toString());
-// console.log(book3.toString());
-// console.log(book4.toString());
 const reader1 = new Reader("Lilit", "Yepremyan", 1);
 const reader2 = new Reader("Araik", "Yepremyan", 2);
-// console.log(reader1)
-// console.log(reader1.toString());
-// const reader2 = new Reader(1, 1, 3);
-// console.log(reader2.toString())
-// console.log(reader1.borrowBook("Hamlet", "William Shakespeare"));
-// console.log(reader1.toString())
-// console.log(reader2)
-// console.log(reader2.toString())
+
 const books = [book1, book2];
 const readers = [reader1, reader2];
-// console.log(books)
-const librery1 = new Library(books, readers); //////
-console.log(librery1.addBooks("The portrait of Dorian Grey")); //////
-// librery1.readers.push(reader1)                   /////
-// const newLibrary = new Library("A", "a", 4);
-// console.log(newLibrary);
-// reader1.borrowBook(book1,newLibrary)
-// console.log( newLibrary.doHaveBook("Emma"))
+const a = [book1,reader1]
 
-// reader1.borrowBook(book2,library1)////////////////////
-
-// console.log(doHaveBook("Emma"))
-// console.log(doHaveBook("The portrait of Dorian Grey"));
-// console.log(librery1);
-// console.log(library1.borrowBook("The portrait of Dorian Grey",book1))
-// const bookName = new Book("Emma", "Jane Austen");          /////
-// console.log(bookName.toString());                          /////
-// const bookName1 = new Book(1, 2);
-// console.log(bookName1.toString());
-// const newBook = new LibraryBook("Emma", "Jane Austen", 1, 1);
-// console.log(newBook.addBook("The portrait of Dorian Grey"));
-// console.log(newBook.toString())
-// console.log(newBook.increaseQuantityBy(2, 2));
-// console.log(newBook.decreaseQuantityBy(3, 2));
+// console.log(book1)
+// console.log(book2)
+// console.log(book3)
+// console.log(book2.toString())
+// console.log(book3.isTheSameBook(book2));
+// console.log(book4.toString())
+// console.log(book5.increaseQuantityBy(1,1))
+// console.log(book5.decreaseQuantityBy(2,2))
+console.log(reader1.borrowBook(book2,books))
