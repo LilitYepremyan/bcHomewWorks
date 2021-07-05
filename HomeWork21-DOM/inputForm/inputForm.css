@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.all {
+  margin-top: 50px;
+  text-align: center;
+}
+.buttons {
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.googleSign {
+  display: flex;
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: rgb(19, 155, 209);
+  border-style: solid;
+  font-weight: bold;
+  color: rgb(19, 155, 209);
+  justify-content: center;
+  align-items: center;
+}
+.buttons1:focus{
+  outline:solid rgb(19, 155, 209);
+}
+.buttons1 {
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.appleSign {
+  display: flex;
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: rgb(0, 6, 8);
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.button:focus{
+  outline: solid rgb(19, 155, 209);
+  -moz-outline-radius: 100%;
+
+}
+.aaa {
+  margin-bottom: 40px;
+}
+.acaSign {
+  color: black;
+  font-weight: bold;
+  font-size: 46px;
+
+  margin-bottom: 10px;
+}
+.slackLink {
+  color: grey;
+  font-size: 20px;
+}
+
+.styles-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.paragraph {
+  width: 25%;
+  display: flex;
+  justify-content: end;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.styles1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.password {
+  width: 25%;
+  display: flex;
+  justify-content: end;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.password-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 400px;
+  font-size: 18px;
+}
+.password-item:focus{
+  outline: solid rgb(19, 155, 209);;
+}
+
+.styles2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.gButton {
+  font-weight: bold;
+  height: 40px;
+  width: 400px;
+}
+.phoneButton {
+  height: 20px;
+  width: 180px;
+}
+.email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 400px;
+  font-size: 18px;
+}
+.email:focus {
+  outline:  solid rgb(19, 155, 209);
+ 
+}
+
+.button {
+  height: 40px;
+  width: 400px;
+  background-color: rgb(75, 28, 93);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  border-width: bold;
+  font-size: 18px;
+}
+.checkbox {
+  margin-top: 10px;
+  margin-right: 155px;
+}
+.check {
+  margin-right: 20px;
+}
