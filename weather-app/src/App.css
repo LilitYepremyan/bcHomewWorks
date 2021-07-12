@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+.weekDays {
+  border: 2px solid black;
+  border-radius: 2%;
+  width: 140px;
+  padding: 5px;
+}
+.image {
+  height: 90px;
+  width: 90px;
+}
