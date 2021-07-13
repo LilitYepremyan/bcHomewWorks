@@ -45,7 +45,6 @@ const weatherInfo = [
 const allDays = weatherInfo.map((el) => {
   return (
     <div className="weekDays">
-      
       <h3 className="WeekDay">{el.weekDey}</h3>
       <img className="image" src={el.imgURL} />
       <h4 className="temp">{el.temp}</h4>
