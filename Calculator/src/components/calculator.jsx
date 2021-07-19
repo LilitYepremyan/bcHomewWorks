@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Calculator.module.css';
-import initialState from './fromLocalStorage';
+import initialState from '../helpers/LocalStorage';
 
 export class Calculator extends React.Component {
   constructor(props) {
